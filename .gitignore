@@ -427,3 +427,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+# Never commit raw, unsanitised screenshots
+screenshots/raw/
+*.unsanitised.*
+*.raw.png
