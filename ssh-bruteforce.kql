@@ -1,0 +1,7 @@
+Syslog
+| where Computer == "victim-splunk"
+| where Facility in ("auth", "authpriv")
+| where SyslogMessage contains "Failed password"
+| extend src_ip = extract(@"from (\d+\.\d+\.\d+\.\d+)", 1, SyslogMessage)
+| summarize count() by src_ip
+| where count_ > 20
